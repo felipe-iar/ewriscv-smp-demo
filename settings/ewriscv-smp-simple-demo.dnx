@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<settings>
+    <Stack>
+        <FillEnabled>0</FillEnabled>
+        <OverflowWarningsEnabled>1</OverflowWarningsEnabled>
+        <WarningThreshold>90</WarningThreshold>
+        <SpWarningsEnabled>0</SpWarningsEnabled>
+        <WarnLogOnly>1</WarnLogOnly>
+        <UseTrigger>0</UseTrigger>
+        <TriggerName>main</TriggerName>
+        <LimitSize>0</LimitSize>
+        <ByteLimit>50</ByteLimit>
+    </Stack>
+    <Trace1>
+        <Enabled>0</Enabled>
+        <ShowSource>1</ShowSource>
+    </Trace1>
+    <DebugChecksum>
+        <Checksum>3701109466</Checksum>
+    </DebugChecksum>
+    <Jet>
+        <JetConnSerialNo>72833</JetConnSerialNo>
+        <JetConnFoundProbes />
+        <PrevWtdReset>Software</PrevWtdReset>
+        <OnlineReset>Software</OnlineReset>
+        <DisableInterrupts>0</DisableInterrupts>
+        <LeaveRunning>0</LeaveRunning>
+        <MultiCoreRunAll>0</MultiCoreRunAll>
+    </Jet>
+    <PlDriver>
+        <FirstRun>0</FirstRun>
+        <MemConfigValue>C:\IAR_Systems\EWRISCV\3.10.1\riscv\config\debugger\Microchip\polarfire_u54.ddf</MemConfigValue>
+    </PlDriver>
+    <Disassembly>
+        <InstrCount>0</InstrCount>
+        <MixedMode>1</MixedMode>
+    </Disassembly>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
+    <RiscvDriver>
+        <EnableCache>1</EnableCache>
+    </RiscvDriver>
+    <DriverProfiling>
+        <Enabled>0</Enabled>
+        <Mode>1</Mode>
+        <Graph>0</Graph>
+        <Symbiont>0</Symbiont>
+    </DriverProfiling>
+    <InterruptLog>
+        <GraphEnabled>0</GraphEnabled>
+        <LogEnabled>0</LogEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <SumEnabled>0</SumEnabled>
+        <ShowTimeSum>1</ShowTimeSum>
+        <SumSortOrder>0</SumSortOrder>
+    </InterruptLog>
+    <DataLog>
+        <GraphEnabled>0</GraphEnabled>
+        <LogEnabled>0</LogEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <SumEnabled>0</SumEnabled>
+        <ShowTimeSum>1</ShowTimeSum>
+    </DataLog>
+    <Interrupts>
+        <Enabled>1</Enabled>
+    </Interrupts>
+    <MemConfig>
+        <Base>1</Base>
+        <Manual>0</Manual>
+        <Ddf>1</Ddf>
+        <TypeViol>0</TypeViol>
+        <Stop>1</Stop>
+    </MemConfig>
+    <Simulator>
+        <Freq>50000000</Freq>
+        <FreqHi>0</FreqHi>
+        <MultiCoreRunAll>1</MultiCoreRunAll>
+    </Simulator>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ "$PROJ_DIR$\LogFile1.log"</LogFile>
+        <Category2>_ 2</Category2>
+    </LogFile>
+    <Breakpoints2>
+        <Count>0</Count>
+    </Breakpoints2>
+    <Aliases>
+        <Count>0</Count>
+        <SuppressDialog>0</SuppressDialog>
+    </Aliases>
+</settings>
