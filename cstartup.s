@@ -15,6 +15,10 @@
         PUBLIC   __iar_program_start_metal
 
         SECTION CSTACK:DATA:NOROOT(4)
+        SECTION CSTACK1:DATA:NOROOT(4)
+        SECTION CSTACK2:DATA:NOROOT(4)
+        SECTION CSTACK3:DATA:NOROOT(4)
+        SECTION CSTACK4:DATA:NOROOT(4)
 
         // --------------------------------------------------
 
@@ -67,10 +71,36 @@ __iar_cstart_init_gp:
         CODE
 ?cstart_init_sp:
         cfi ?RET Undefined
-        ;; lui     a0, %hi(SFE(CSTACK))
-        ;; addi   a0, a0, %lo(SFE(CSTACK) )
+
+        // One stack for each hart
+        csrr    a0, mhartid
+        bne     a0, zero, ?not_hart_0
         la      a0, SFE(CSTACK)
         andi    sp, a0, -16
+        j       ?sp_setup_done
+?not_hart_0:
+        li12    a1, 1
+        bne     a0, a1, ?not_hart_1
+        la      a0, SFE(CSTACK1)
+        andi    sp, a0, -16
+        j       ?sp_setup_done
+?not_hart_1:
+        li12    a1, 2
+        bne     a0, a1, ?not_hart_2
+        la      a0, SFE(CSTACK2)
+        andi    sp, a0, -16
+        j       ?sp_setup_done
+?not_hart_2:
+        li12    a1, 3
+        bne     a0, a1, ?not_hart_3
+        la      a0, SFE(CSTACK3)
+        andi    sp, a0, -16
+        j       ?sp_setup_done
+?not_hart_3:
+        la      a0, SFE(CSTACK4)
+        andi    sp, a0, -16
+?sp_setup_done:
+
 
         // Setup up a default interrupt handler to handle any exceptions that
         // might occur during startup
@@ -131,11 +161,10 @@ call_low_level_init:
         call    __low_level_init
         beq     a0, zero, ?cstart_call_main
 
-        // only initialize data from core 0, mhartid == 1
-        csrr    a0, mhartid
-        addi    a1, zero, 1
-        bne     a0, a1, ?cstart_call_main
         CfiCall __iar_data_init2
+        csrr    a0, mhartid
+        li12    a1, 1
+        bne     a0, a1, ?cstart_call_main
         call    __iar_data_init2
 
 ?cstart_call_main:
@@ -164,4 +193,3 @@ __alias_hw_reset:
         jr       a0
 
         END
-
