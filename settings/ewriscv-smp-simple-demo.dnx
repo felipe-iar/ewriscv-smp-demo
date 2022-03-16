@@ -23,9 +23,9 @@
         <JetConnFoundProbes />
         <PrevWtdReset>Software</PrevWtdReset>
         <OnlineReset>Software</OnlineReset>
-        <MultiCoreRunAll>0</MultiCoreRunAll>
         <DisableInterrupts>0</DisableInterrupts>
         <LeaveRunning>0</LeaveRunning>
+        <MultiCoreRunAll>0</MultiCoreRunAll>
     </Jet>
     <PlDriver>
         <FirstRun>0</FirstRun>
