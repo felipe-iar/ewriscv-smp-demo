@@ -161,10 +161,10 @@ call_low_level_init:
         call    __low_level_init
         beq     a0, zero, ?cstart_call_main
 
-        CfiCall __iar_data_init2
         csrr    a0, mhartid
         li12    a1, 1
         bne     a0, a1, ?cstart_call_main
+        CfiCall __iar_data_init2
         call    __iar_data_init2
 
 ?cstart_call_main:
