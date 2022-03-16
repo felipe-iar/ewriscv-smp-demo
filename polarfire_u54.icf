@@ -1,0 +1,55 @@
+///////////////////////////////////////////////////////////////////////////////
+// RISC-V ilink configuration file.
+// for the Microchip U54 Polarfire RISC-V device.
+//
+
+define exported symbol _link_file_version_2 = 1;
+define exported symbol _max_vector = 16;
+define exported symbol _CLINT = 1;
+
+keep symbol __iar_cstart_init_gp; // defined in cstartup.s
+keep symbol __init_itim_sifive;   // clears ITIM memory during startup
+
+define memory mem with size = 16E;
+
+define region ITIM = mem:[from 0x08000000 to 0x08001FFF];
+define region ROM  = mem:[from 0x40000000 to 0x5FFFFFFF];
+define region RAM  = mem:[from 0x80000000 to 0x8000FFFF];
+
+initialize by copy { rw };
+initialize by copy { section .itim };
+do not initialize  { section *.noinit };
+
+define block CSTACK  with alignment = 16, size = CSTACK_SIZE { };
+define block CSTACK1 with alignment = 16, size = CSTACK_SIZE { };
+define block CSTACK2 with alignment = 16, size = CSTACK_SIZE { };
+define block CSTACK3 with alignment = 16, size = CSTACK_SIZE { };
+define block CSTACK4 with alignment = 16, size = CSTACK_SIZE { };
+define block HEAP    with alignment = 16, size = HEAP_SIZE   { };
+
+define block MVECTOR with alignment = 128, size = _max_vector * 4 { ro section .mintvec };
+define block MVECTOR_METAL with alignment = 128 { ro section .mintvec.metal };
+define block MVECTORS { block MVECTOR,block MVECTOR_METAL };
+
+define block CSTARTUP with fixed order { ro section .text.metal.init.enter, ro section .cstartup };
+
+define block MINTERRUPTS with maximum size =  64k { ro section .mtext,
+                                                    midway block MVECTORS };
+
+define block RW_DATA with static base GPREL { rw data };
+
+"CSTARTUP" : place at start of RAM { block CSTARTUP };
+
+"ROM":place in RAM        { ro,
+                            block MINTERRUPTS };
+
+"ITIM":place in ITIM      { rw section .itim };
+
+"RAM":place in RAM        { block RW_DATA,
+                            block HEAP,
+                            block CSTACK,
+                            block CSTACK1,
+                            block CSTACK2,
+                            block CSTACK3,
+                            block CSTACK4,
+                            };
