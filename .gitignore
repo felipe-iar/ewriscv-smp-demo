@@ -1,4 +1,10 @@
-Debug
+Debug/
+
+settings/*.xcl
+settings/*.bat
+settings/*.ps1
+settings/*.dbgdt
+
 *.ewt
 *.dep
 

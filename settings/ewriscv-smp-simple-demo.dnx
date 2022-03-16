@@ -16,7 +16,7 @@
         <ShowSource>1</ShowSource>
     </Trace1>
     <DebugChecksum>
-        <Checksum>284808087</Checksum>
+        <Checksum>2334933550</Checksum>
     </DebugChecksum>
     <Jet>
         <JetConnSerialNo>72833</JetConnSerialNo>
@@ -87,9 +87,10 @@
         <Category2>_ 2</Category2>
     </LogFile>
     <Breakpoints2>
-        <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\core2.c}.10.5" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 1 "STD_LOG2" "{$PROJ_DIR$\core3.c}.11.5" "" 1 "%"Hello from core3. Counter is %", core3.counter" 1 0 0</Bp1>
-        <Count>2</Count>
+        <Bp0>_ 0 "STD_LOG2" "{$PROJ_DIR$\core3.c}.11.5" "" 1 "%"Hello from core3. Counter is %", core3.counter" 1 0 0</Bp0>
+        <Bp1>_ 0 "EMUL_CODE" "{$PROJ_DIR$\core2.c}.11.5" 0 0 1 "" 0 "" 0</Bp1>
+        <Bp2>_ 0 "EMUL_CODE" "{$PROJ_DIR$\core1.c}.13.5" 0 0 1 "" 0 "" 0</Bp2>
+        <Count>3</Count>
     </Breakpoints2>
     <Aliases>
         <Count>0</Count>
