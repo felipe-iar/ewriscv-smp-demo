@@ -6,7 +6,8 @@
 #include <stdio.h>
 #include <microchip/iopolarfire_u54.h>
 
-#define CORE (__read_csr(_CSR_MHARTID)-1)        // macro used to identify the core
+/* macro for identifying the core by its MHARTID */
+#define CORE (__read_csr(_CSR_MHARTID)-1)
 
 #define DELAY(x) { x.delay = x.reload; \
                    while(x.delay) {    \
@@ -30,7 +31,7 @@ typedef struct {
 
 extern shared_t resource;
 
-/* hart0-3 specific threads */
+/* core-specific "threads" */
 void core0_foo();
 void core1_foo();
 void core2_foo();
