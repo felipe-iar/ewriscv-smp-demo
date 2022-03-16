@@ -632,7 +632,7 @@
                 </option>
                 <option>
                     <name>IlinkOutputFile</name>
-                    <state>BasicDebugging.out</state>
+                    <state>$PROJ_FNAME$.out</state>
                 </option>
                 <option>
                     <name>IlinkDebugInfoEnable</name>
@@ -692,11 +692,11 @@
                 </option>
                 <option>
                     <name>IlinkIcfOverride</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state>$TOOLKIT_DIR$\config\linker\Microchip\polarfire_u54.icf</state>
+                    <state>$PROJ_DIR$/polarfire_u54.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
